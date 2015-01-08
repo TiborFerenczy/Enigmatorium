@@ -15,6 +15,8 @@ public class Cipher {
     public int getOffset() {
         return offset;
     }
+    
+    //enum enumeracje
 
     public void setOffset(int offset) {
         this.offset = offset;
