@@ -1,15 +1,21 @@
+
+import Ciphers.Alphabet;
 import Ciphers.Cipher;
+
 public class Main {
 
     public static void main(String[] args) {
 
-        String word = "ABCD";
-        String word2;
-        //cipher(word);
- 
-       Cipher c = new Cipher();
-       word2=c.encrypt2(word);
-       System.out.println(word);
-       System.out.println(word2);
-}
+
+
+
+        Alphabet alfabet = new Alphabet(Alphabet.Alphabets.ALPHA_UP_WITH_SPACE);
+        Cipher cipher = new Cipher(alfabet);
+        String word = "ABCDZ ";
+
+
+        System.out.println(word);
+        word = cipher.encrypt(word);
+        System.out.println(word);
+    }
 }
