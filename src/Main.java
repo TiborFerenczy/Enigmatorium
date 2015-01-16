@@ -1,6 +1,8 @@
 
 import Ciphers.Alphabet;
 import Ciphers.Cipher;
+import Ciphers.CipherCaesar;
+import Ciphers.*;
 
 public class Main {
 
@@ -9,13 +11,17 @@ public class Main {
 
 
 
-        Alphabet alfabet = new Alphabet(Alphabet.Alphabets.ALPHA_UP_WITH_SPACE);
-        Cipher cipher = new Cipher(alfabet);
-        String word = "ABCDZ ";
+        Alphabet alfabet = new Alphabet(Alphabet.charset.ALPHA_UP_WITH_SPACE.getChars());
+        Cipher cipher = new CipherCaesar(alfabet);
+        String word = "ABCD";
+        String word2;
 
 
         System.out.println(word);
-        word = cipher.encrypt(word);
-        System.out.println(word);
+        word2 = cipher.encrypt(word);
+        System.out.println(word2);
+        word2 = cipher.decrypt(word);
+        System.out.println(word2);
+        
     }
 }

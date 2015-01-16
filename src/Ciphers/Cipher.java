@@ -1,29 +1,29 @@
 package Ciphers;
 
-public class Cipher {
+public abstract class Cipher {
 
-    private Alphabet alfabet;
+    protected Alphabet alfabet;
+    protected int key = 1;
 
     public Cipher(Alphabet a) {
         alfabet = a;
 
     }
 
-    public Cipher(int offset) {
-        this.offset = offset;
+    public Cipher(int key) {
+        this.key = key;
     }
 
     public Cipher() {
     }
-    private int offset = 1;
 
     public int getOffset() {
-        return offset;
+        return key;
     }
 
     //enum enumeracje
     public void setOffset(int offset) {
-        this.offset = offset;
+        this.key = offset;
     }
 //
 //    public String encrypt1(String word) {
@@ -44,16 +44,25 @@ public class Cipher {
 //        }
 //    }
 
-    public String encrypt(String word) {
-        StringBuilder sb = new StringBuilder();
+    String doJob(String word, CharProc cp) {
+    StringBuilder sb = new StringBuilder();
         for (int i = 0; i < word.length(); i++) {
             char ch = word.charAt(i);
-            int idx = alfabet.indexOf(ch);
-            idx = (idx + offset) % alfabet.length();
-            sb.append(alfabet.charAt(idx));
+   
+            ch = cp.process(ch, key, alfabet);
+           
+            
+            
+            sb.append(ch);
 
+            
+            
         }
-
-        return sb.toString();
+          return sb.toString();
+    
     }
+
+    public abstract String encrypt(String word);
+
+    public abstract String decrypt(String word);
 }
