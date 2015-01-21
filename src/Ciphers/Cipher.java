@@ -44,22 +44,23 @@ public abstract class Cipher {
 //        }
 //    }
 
-    String doJob(String word, CharProc cp) {
-    StringBuilder sb = new StringBuilder();
+    protected String doJob(String word, CharProc cp) {
+
+        if (!alfabet.isTextValid(word)) {
+            throw new IllegalArgumentException("Tekst zawiera znaki spoza alfabetu.");
+        }
+        
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < word.length(); i++) {
             char ch = word.charAt(i);
-   
-            ch = cp.process(ch, key, alfabet);
-           
-            
-            
-            sb.append(ch);
 
-            
-            
+            ch = cp.process(ch, key, alfabet);
+
+            sb.append((char)ch);
+
         }
-          return sb.toString();
-    
+        return sb.toString();
+
     }
 
     public abstract String encrypt(String word);

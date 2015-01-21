@@ -20,8 +20,9 @@ public class Alphabet {
     }
 
     boolean isTextValid(String text) {
-        return text.matches("^{" + charset + "]*$");
+        return text.matches("^[" + charset + "]*$");
     }
+    
 
     int length() {
         return length;

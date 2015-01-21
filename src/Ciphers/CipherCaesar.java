@@ -35,6 +35,8 @@ public class CipherCaesar extends Cipher {
                  if (idx < 0) {
                     idx = idx + alfabet.length();
                 }
+                 
+               
 
                 return alfabet.charAt(idx);
 
