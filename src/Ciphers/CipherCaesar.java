@@ -5,17 +5,18 @@ public class CipherCaesar extends Cipher {
     public CipherCaesar(Alphabet a) {
         super(a);
     }
-    int p = 1;
 
     @Override
     public String encrypt(String word) {
-        return doJob(word, new CharProc() {
+        return doJob(word, new CharProc<Integer>() {
 
             @Override
-            public char process(char ch, int key, Alphabet alfabet) {
+            public char process(char ch, Integer key, Alphabet alfabet) {
                 int idx = alfabet.indexOf(ch);
                 idx = (idx + key) % alfabet.length();
-                if(idx<0){idx = idx+alfabet.length();}
+                if (idx < 0) {
+                    idx = idx + alfabet.length();
+                }
 
                 return alfabet.charAt(idx);
 
@@ -25,24 +26,24 @@ public class CipherCaesar extends Cipher {
 
     @Override
     public String decrypt(String word) {
-          return doJob(word, new CharProc() {
+        return doJob(word, new CharProc<Integer>() {
 
             @Override
-            public char process(char ch, int key, Alphabet alfabet) {
+            public char process(char ch, Integer key, Alphabet alfabet) {
                 int idx = alfabet.indexOf(ch);
-               
+
                 idx = (idx - key) % alfabet.length();
-                 if (idx < 0) {
+                if (idx < 0) {
                     idx = idx + alfabet.length();
                 }
-                 
-               
+
+
 
                 return alfabet.charAt(idx);
 
             }
         });
-}
+    }
 }
 
 

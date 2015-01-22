@@ -1,28 +1,28 @@
 package Ciphers;
 
-public abstract class Cipher {
+public abstract class Cipher<T> {
 
     protected Alphabet alfabet;
-    protected int key = 1;
+    protected T key;
 
     public Cipher(Alphabet a) {
         alfabet = a;
 
     }
 
-    public Cipher(int key) {
+    public Cipher(T key) {
         this.key = key;
     }
 
     public Cipher() {
     }
 
-    public int getOffset() {
+    public T getOffset() {
         return key;
     }
 
     //enum enumeracje
-    public void setOffset(int offset) {
+    public void setOffset(T offset) {
         this.key = offset;
     }
 //

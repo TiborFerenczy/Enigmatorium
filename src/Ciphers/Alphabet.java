@@ -30,7 +30,7 @@ public class Alphabet {
 
     public enum charset {
         ALPHA_UP_WITH_SPACE("ABCDEFGHIJKLMNOPRSTUWXYZ "),
-        DIGITS("123456789");
+        DIGITS("0123456789");
         private String chars;
 
         charset(String chars) {

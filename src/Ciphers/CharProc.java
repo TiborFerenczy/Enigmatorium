@@ -1,6 +1,7 @@
 package Ciphers;
 
-public interface CharProc {
+public interface CharProc<T> {
 //interfejs
-    public char process(char c, int key, Alphabet alfabet);
+
+    public char process(char c, T key, Alphabet alfabet);
 }
