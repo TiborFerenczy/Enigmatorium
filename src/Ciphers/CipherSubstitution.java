@@ -13,13 +13,10 @@ public class CipherSubstitution extends Cipher {
             @Override
             public char process(char ch, String key, Alphabet alfabet) {
                 int idx = alfabet.indexOf(ch);
-                int idx2 = key.indexOf(idx);
-                idx = (idx + idx2) % alfabet.length();
-                if (idx < 0) {
-                    idx = idx + alfabet.length();
-                }
+                
+          
 
-                return alfabet.charAt(idx);
+                return key.charAt(idx);
 
             }
         });

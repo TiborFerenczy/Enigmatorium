@@ -27,7 +27,7 @@ public class Main {
         cipher2.setOffset("5903142867");
         word = "903";
         word2=cipher2.encrypt(word2);
-         System.out.println(word);
+        System.out.println(word);
         System.out.println(word2);
         
         
